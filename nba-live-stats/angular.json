@@ -58,7 +58,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "port": 4303
+            "port": 4203
           },
           "configurations": {
             "production": {
