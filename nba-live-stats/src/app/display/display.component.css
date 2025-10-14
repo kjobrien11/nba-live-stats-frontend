@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    border: solid;
     grid-template-areas: 
         "home . . away"
         "home  home-score away-score away"
