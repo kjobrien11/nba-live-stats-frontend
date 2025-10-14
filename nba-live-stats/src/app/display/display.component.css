@@ -1,0 +1,33 @@
+.display-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+        "home . . away"
+        "home  home-score away-score away"
+        "home-stats . . away-stats";
+}
+
+.home-team {
+    grid-area: home;
+}
+
+.away-team {
+    grid-area: away;
+}
+
+.home-score{
+    grid-area: home-score;
+}
+
+.away-score{
+    grid-area: away-score;
+}
+
+.home-stats{
+    grid-area: home-stats;
+}
+
+.away-stats{
+    grid-area: away-stats;
+}
