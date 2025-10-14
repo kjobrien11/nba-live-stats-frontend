@@ -5,9 +5,14 @@
     font-style: normal;
 }
 
-body{
+body {
     color: white;
     background-color: black;
     font-family: 'Scoreboard', monospace;
+
 }
 
+* {
+    margin: 0rem;
+    padding: 0rem;
+}
