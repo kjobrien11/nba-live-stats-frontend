@@ -1,0 +1,11 @@
+.time-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+h1{
+    font-size: 4rem;
+}

@@ -3,7 +3,8 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-template-areas: 
-        "home . . away"
+        "home time time away"
+        "home  home-score away-score away"
         "home  home-score away-score away"
         "home-stats . . away-stats";
 }
@@ -30,4 +31,8 @@
 
 .away-stats{
     grid-area: away-stats;
+}
+
+.time{
+    grid-area: time;
 }
