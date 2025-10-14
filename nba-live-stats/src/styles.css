@@ -2,4 +2,12 @@
 body{
     color: white;
     background-color: black;
+    font-family: 'Scoreboard', monospace;
 }
+
+@font-face {
+    font-family: 'Scoreboard';
+    src: url('assets/fonts/scoreboard.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
