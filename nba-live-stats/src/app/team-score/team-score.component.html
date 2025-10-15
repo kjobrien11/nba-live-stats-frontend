@@ -1,5 +1,5 @@
 <div class = "score-container">
-<h1>93</h1>
-<h3>● ● ● ● ● ○ ○</h3>
-<h2>Bonus</h2>
+<h1>{{score}}</h1>
+<h3>{{displayTimeouts.join(' ')}}</h3>
+<h2 [ngClass]="{'bonus-class': inBonus}">Bonus</h2>
 </div>

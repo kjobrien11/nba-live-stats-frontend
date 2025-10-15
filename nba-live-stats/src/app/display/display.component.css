@@ -1,12 +1,14 @@
 .display-container{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    margin-top: 2rem;
+    grid-template-columns: 30% 1fr 1fr 30%;
+    grid-template-rows: 15% repeat(2, 1fr) 20%;
     grid-template-areas: 
+
         "home time time away"
         "home  home-score away-score away"
         "home  home-score away-score away"
-        "home-stats . . away-stats";
+        "home-stats home-stats away-stats away-stats";
 }
 
 .home-team {
