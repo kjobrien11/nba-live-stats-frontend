@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TeamStats } from '../interfaces/team-stats';
 
 @Component({
@@ -9,11 +9,5 @@ import { TeamStats } from '../interfaces/team-stats';
 })
 export class TeamStatsComponent {
 
-  teamStats: TeamStats = {
-    assists: 8,
-    reboundsPersonal: 10,
-    reboundsOffensive: 3,
-    reboundsDefensive: 7,
-    turnoversTotal: 2,
-  }
+  @Input() teamStats!: TeamStats;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { TeamScore } from '../interfaces/team-score';
 
@@ -10,11 +10,7 @@ import { TeamScore } from '../interfaces/team-score';
 })
 export class TeamScoreComponent implements OnInit {
 
-  teamScore: TeamScore = {
-    score: 92,
-    inBonus: 0,
-    timeoutsRemaining: 4
-  };
+  @Input() teamScore!: TeamScore;
 
 
   displayTimeouts = new Array(7)
