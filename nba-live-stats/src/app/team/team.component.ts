@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Team } from '../interfaces/team';
 
 @Component({
   selector: 'app-team',
@@ -7,9 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './team.component.css'
 })
 export class TeamComponent {
-  teamName:string = "Hawks"
-  spread:string = "-7";
-  wins:number = 5;
-  loses:number = 2;
 
+  @Input() team!: Team;
+  
 }

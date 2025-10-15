@@ -1,9 +1,9 @@
 <div class="display-container">
-    <app-team class = "home-team"></app-team>
-    <app-time class ="time"></app-time>
-    <app-team class = "away-team"></app-team>
-    <app-team-score class = "home-score"></app-team-score>
-    <app-team-score class = "away-score"></app-team-score>
-    <app-team-stats class = "home-stats"></app-team-stats>
-    <app-team-stats class = "away-stats"></app-team-stats>
+    <app-team class = "home-team" [team]="team"></app-team>
+    <app-time class ="time" [gameStatusText] ="gameStatusText"></app-time>
+    <app-team class = "away-team" [team]="team2"></app-team>
+    <app-team-score class = "home-score" [teamScore]="teamScore"></app-team-score>
+    <app-team-score class = "away-score" [teamScore]="teamScore2"></app-team-score>
+    <app-team-stats class = "home-stats" [teamStats]="teamStats"></app-team-stats>
+    <app-team-stats class = "away-stats" [teamStats]="teamStats2"></app-team-stats>
 </div>
