@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TeamStats } from '../interfaces/team-stats';
 
 @Component({
   selector: 'app-team-stats',
@@ -8,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class TeamStatsComponent {
 
+  teamStats: TeamStats = {
+    assists: 8,
+    reboundsPersonal: 10,
+    reboundsOffensive: 3,
+    reboundsDefensive: 7,
+    turnoversTotal: 2,
+  }
 }

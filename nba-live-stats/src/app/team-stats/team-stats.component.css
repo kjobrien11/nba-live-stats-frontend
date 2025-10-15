@@ -1,6 +1,20 @@
 .stats-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-area:
+    "assists rebounds"
+    "turnovers freethrows"
+    "pof llead";
     align-items: center;
+}
+
+h2 {
+    font-size: 3.5rem;
+    padding-left: 5rem;
+    color: rgb(179, 179, 179);
+}
+
+.light-text{
+    color: white;
 }
