@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { TeamScore } from '../interfaces/team-score';
 
 @Component({
   selector: 'app-team-score',
@@ -7,20 +8,24 @@ import { NgClass } from '@angular/common';
   templateUrl: './team-score.component.html',
   styleUrl: './team-score.component.css'
 })
-export class TeamScoreComponent implements OnInit{
-  score:number = 92;
-  inBonus: number = 0;
-  timeoutsRemaining:number = 4;
+export class TeamScoreComponent implements OnInit {
+
+  teamScore: TeamScore = {
+    score: 92,
+    inBonus: 0,
+    timeoutsRemaining: 4
+  };
+
 
   displayTimeouts = new Array(7)
 
-  ngOnInit(){
+  ngOnInit() {
     this.calculateTimeOutDisplays();
   }
 
-  calculateTimeOutDisplays(){
-    this.displayTimeouts.fill("●", 0, this.timeoutsRemaining);
-    this.displayTimeouts.fill("○", this.timeoutsRemaining, 7);
+  calculateTimeOutDisplays() {
+    this.displayTimeouts.fill("●", 0, this.teamScore.timeoutsRemaining);
+    this.displayTimeouts.fill("○", this.teamScore.timeoutsRemaining, 7);
   }
 
 }
