@@ -3,11 +3,22 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 1rem;
+    margin-top: 1rem;
 }
 
 img {
     height: auto;
     width: 20vw;
     object-fit: contain;
+}
+
+h1 {
+    font-size: 4rem;
+    padding: 0.5rem;
+}
+
+h2 {
+    font-size: 3rem;
+     padding: 0.25rem;
+    color: darkgrey;
 }
