@@ -25,7 +25,7 @@ export class DisplayComponent implements OnInit {
   ngOnInit() {
     this.api.getTodaysGames().subscribe(data => {
       console.log(data)
-      let game = data[0]
+      let game = data[2]
       this.team = {
         teamName: game.homeTeam,
         wins: game.homeTeamWins,
