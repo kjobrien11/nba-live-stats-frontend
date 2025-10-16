@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TeamComponent } from '../team/team.component';
 import { TeamScoreComponent } from '../team-score/team-score.component';
 import { TeamStatsComponent } from '../team-stats/team-stats.component';
@@ -7,6 +7,7 @@ import { Team } from '../interfaces/team';
 import { TeamScore } from '../interfaces/team-score';
 import { TeamStats } from '../interfaces/team-stats';
 import { GameInformation } from '../interfaces/game-information';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-display',
@@ -14,21 +15,33 @@ import { GameInformation } from '../interfaces/game-information';
   templateUrl: './display.component.html',
   styleUrl: './display.component.css'
 })
-export class DisplayComponent {
+export class DisplayComponent implements OnInit {
 
-  team: Team = {
-    teamName: "hawks",
-    spread: "-7",
-    wins: 5,
-    loses: 2
+  constructor(private api: DataService) { };
+
+  team!: Team;
+
+  team2!: Team;
+  ngOnInit() {
+    this.api.getTodaysGames().subscribe(data => {
+      console.log(data)
+      let game = data[0]
+      this.team = {
+        teamName: game.homeTeam,
+        wins: game.homeTeamWins,
+        loses: game.homeTeamLoses
+      };
+
+      this.team2 = {
+        teamName: game.awayTeam,
+        wins: game.awayTeamWins,
+        loses: game.awayTeamLoses
+      };
+
+    });
   }
 
-  team2: Team = {
-    teamName: "cavs",
-    spread: "",
-    wins: 3,
-    loses: 4
-  }
+
 
   teamScore: TeamScore = {
     score: 92,
@@ -60,6 +73,6 @@ export class DisplayComponent {
   }
 
   gameStatusText: GameInformation = {
- "gameStatusText": "Q3 5:46"
+    "gameStatusText": "Q3 5:46"
   }
 }
