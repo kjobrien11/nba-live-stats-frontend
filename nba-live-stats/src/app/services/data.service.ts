@@ -13,4 +13,8 @@ export class DataService {
   getTodaysGames(): Observable<any>{
    return this.http.get<any>(`${this.baseUrl}/todays-games`);
   }
+
+  getTodaysBoxScores(): Observable<any>{
+   return this.http.get<any>(`${this.baseUrl}/todays-games-boxscores`);
+  }
 }
