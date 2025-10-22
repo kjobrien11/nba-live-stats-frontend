@@ -76,7 +76,7 @@ export class DisplayComponent implements OnInit {
     };
   }
 
-    getNextGameStatusText(): GameInformation {
+  getNextGameStatusText(): GameInformation {
     return {
       "gameStatusText": this.todaysGamesStats[this.gameIndex].gameStatusText
     }
