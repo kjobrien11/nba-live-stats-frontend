@@ -4,6 +4,6 @@
     <app-team class = "away-team" [team]="getNextAwayTeam()"></app-team>
     <app-team-score class = "home-score" [teamScore]="getNextHomeTeamScore()"></app-team-score>
     <app-team-score class = "away-score" [teamScore]="getNextAwayTeamScore()"></app-team-score>
-    <app-team-stats class = "home-stats" [teamStats]="teamStats"></app-team-stats>
-    <app-team-stats class = "away-stats" [teamStats]="teamStats2"></app-team-stats>
+    <app-team-stats class = "home-stats" [teamStats]="getNextTeamStats('home')"></app-team-stats>
+    <app-team-stats class = "away-stats" [teamStats]="getNextTeamStats('away')"></app-team-stats>
 </div>

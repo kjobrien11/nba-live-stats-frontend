@@ -84,7 +84,18 @@ export class DisplayComponent implements OnInit {
       timeoutsRemaining: this.todaysGamesStats[this.gameIndex].awayTimeoutsRemaining,
     };
   }
-  
+
+ getNextTeamStats(side: "home" | "away"): TeamStats {
+  const team = this.todaysGamesStats[this.gameIndex];
+  return {
+    assists: team[`${side}TeamAssists`],
+    reboundsPersonal: team[`${side}TeamRebounds`],
+    reboundsOffensive: team[`${side}TeamOffensiveRebounds`],
+    reboundsDefensive: team[`${side}TeamDefensiveRebounds`],
+    turnoversTotal: team[`${side}TeamTurnovers`],
+  };
+}
+
   teamStats: TeamStats = {
     assists: 8,
     reboundsPersonal: 10,
