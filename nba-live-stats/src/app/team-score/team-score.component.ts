@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { TeamScore } from '../interfaces/team-score';
 
@@ -8,15 +8,22 @@ import { TeamScore } from '../interfaces/team-score';
   templateUrl: './team-score.component.html',
   styleUrl: './team-score.component.css'
 })
-export class TeamScoreComponent implements OnInit {
+export class TeamScoreComponent implements OnInit, OnChanges {
 
   @Input() teamScore!: TeamScore;
 
 
-  displayTimeouts = new Array(7)
+  displayTimeouts = new Array(7);
 
   ngOnInit() {
+    console.log("INITI")
     this.calculateTimeOutDisplays();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['teamScore'] && this.teamScore) {
+      this.calculateTimeOutDisplays();
+    }
   }
 
   calculateTimeOutDisplays() {

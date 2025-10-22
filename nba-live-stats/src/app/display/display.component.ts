@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TeamComponent } from '../team/team.component';
 import { TeamScoreComponent } from '../team-score/team-score.component';
 import { TeamStatsComponent } from '../team-stats/team-stats.component';
@@ -17,7 +17,7 @@ import { MatchupStats } from '../interfaces/matchup-stats';
   templateUrl: './display.component.html',
   styleUrl: './display.component.css'
 })
-export class DisplayComponent implements OnInit {
+export class DisplayComponent implements OnInit, OnDestroy {
 
   constructor(private api: DataService) { };
 
@@ -27,9 +27,18 @@ export class DisplayComponent implements OnInit {
   todaysGames!: Matchup[];
   todaysGamesStats!: MatchupStats[];
 
+  interval: any;
+
 
   ngOnInit() {
     this.refreshStats();
+    this.interval = setInterval(() => {
+      this.nextMatchup();
+    }, 5000);
+    
+  }
+    ngOnDestroy() {
+    clearInterval(this.interval);
   }
 
   refreshStats():void {
