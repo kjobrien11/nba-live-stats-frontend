@@ -29,6 +29,10 @@ export class DisplayComponent implements OnInit {
 
 
   ngOnInit() {
+    this.refreshStats();
+  }
+
+  refreshStats():void {
     this.api.getTodaysGames().subscribe(data => {
       this.todaysGames = data;
       this.maxGameIndex = this.todaysGames.length;
@@ -41,6 +45,7 @@ export class DisplayComponent implements OnInit {
 
   nextMatchup(): void {
     if (this.gameIndex + 1 == this.maxGameIndex) {
+      this.refreshStats();
       this.gameIndex = 0;
     } else {
       this.gameIndex = this.gameIndex + 1;
