@@ -8,6 +8,7 @@ import { TeamScore } from '../interfaces/team-score';
 import { TeamStats } from '../interfaces/team-stats';
 import { GameInformation } from '../interfaces/game-information';
 import { DataService } from '../services/data.service';
+import { Matchup } from '../interfaces/matchup';
 
 @Component({
   selector: 'app-display',
@@ -19,30 +20,44 @@ export class DisplayComponent implements OnInit {
 
   constructor(private api: DataService) { };
 
-  team!: Team;
+  todaysGames!: Matchup[];
 
-  team2!: Team;
+  gameIndex:number = 0;
+  maxGameIndex!:number;
+
   ngOnInit() {
     this.api.getTodaysGames().subscribe(data => {
-      console.log(data)
-      let game = data[3]
-      this.team = {
-        teamName: game.homeTeam,
-        wins: game.homeTeamWins,
-        loses: game.homeTeamLoses
-      };
-
-      this.team2 = {
-        teamName: game.awayTeam,
-        wins: game.awayTeamWins,
-        loses: game.awayTeamLoses
-      };
-
+      this.todaysGames = data;
+      this.maxGameIndex = this.todaysGames.length;
     });
 
     this.api.getTodaysBoxScores().subscribe(data =>{
       let boxscore = data[0]
     })
+  }
+
+  nextMatchup():void {
+    if(this.gameIndex+1 == this.maxGameIndex){
+      this.gameIndex = 0;
+    }else{
+      this.gameIndex = this.gameIndex +1;
+    }
+  }
+
+  getNextHomeTeam(): Team {
+    return {
+        teamName: this.todaysGames[this.gameIndex].homeTeam,
+        wins:this.todaysGames[this.gameIndex].homeTeamWins,
+        loses:this.todaysGames[this.gameIndex].homeTeamLoses
+      };
+  }
+
+  getNextAwayTeam(): Team {
+    return {
+        teamName: this.todaysGames[this.gameIndex].awayTeam,
+        wins:this.todaysGames[this.gameIndex].awayTeamWins,
+        loses:this.todaysGames[this.gameIndex].awayTeamLoses
+      };
   }
 
 
