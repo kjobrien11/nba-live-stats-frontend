@@ -47,71 +47,39 @@ export class DisplayComponent implements OnInit {
     }
   }
 
-  getNextHomeTeam(): Team {
+  getNextTeam(side: "home" | "away"): Team {
+    const team = this.todaysGames[this.gameIndex];
     return {
-      teamName: this.todaysGames[this.gameIndex].homeTeam,
-      wins: this.todaysGames[this.gameIndex].homeTeamWins,
-      loses: this.todaysGames[this.gameIndex].homeTeamLoses
+      teamName: team[`${side}Team`],
+      wins: team[`${side}TeamWins`],
+      loses: team[`${side}TeamLoses`],
     };
   }
 
-  getNextAwayTeam(): Team {
+  getNextTeamScore(side: "home" | "away"): TeamScore {
+    const team = this.todaysGamesStats[this.gameIndex];
     return {
-      teamName: this.todaysGames[this.gameIndex].awayTeam,
-      wins: this.todaysGames[this.gameIndex].awayTeamWins,
-      loses: this.todaysGames[this.gameIndex].awayTeamLoses
+      score: team[`${side}Score`],
+      inBonus: team[`${side}InBonus`] === "1",
+      timeoutsRemaining: team[`${side}TimeoutsRemaining`],
     };
   }
 
-  getNextGameStatusText(): GameInformation {
+  getNextTeamStats(side: "home" | "away"): TeamStats {
+    const team = this.todaysGamesStats[this.gameIndex];
+    return {
+      assists: team[`${side}TeamAssists`],
+      reboundsPersonal: team[`${side}TeamRebounds`],
+      reboundsOffensive: team[`${side}TeamOffensiveRebounds`],
+      reboundsDefensive: team[`${side}TeamDefensiveRebounds`],
+      turnoversTotal: team[`${side}TeamTurnovers`],
+    };
+  }
+
+    getNextGameStatusText(): GameInformation {
     return {
       "gameStatusText": this.todaysGamesStats[this.gameIndex].gameStatusText
     }
   }
-
-  getNextHomeTeamScore(): TeamScore {
-    return {
-      score: this.todaysGamesStats[this.gameIndex].homeScore,
-      inBonus: this.todaysGamesStats[this.gameIndex].homeInBonus === "1",
-      timeoutsRemaining: this.todaysGamesStats[this.gameIndex].homeTimeoutsRemaining,
-    };
-  }
-
-  getNextAwayTeamScore(): TeamScore {
-    return {
-      score: this.todaysGamesStats[this.gameIndex].awayScore,
-      inBonus: this.todaysGamesStats[this.gameIndex].awayInBonus === "1",
-      timeoutsRemaining: this.todaysGamesStats[this.gameIndex].awayTimeoutsRemaining,
-    };
-  }
-
- getNextTeamStats(side: "home" | "away"): TeamStats {
-  const team = this.todaysGamesStats[this.gameIndex];
-  return {
-    assists: team[`${side}TeamAssists`],
-    reboundsPersonal: team[`${side}TeamRebounds`],
-    reboundsOffensive: team[`${side}TeamOffensiveRebounds`],
-    reboundsDefensive: team[`${side}TeamDefensiveRebounds`],
-    turnoversTotal: team[`${side}TeamTurnovers`],
-  };
-}
-
-  teamStats: TeamStats = {
-    assists: 8,
-    reboundsPersonal: 10,
-    reboundsOffensive: 3,
-    reboundsDefensive: 7,
-    turnoversTotal: 2,
-  }
-
-
-  teamStats2: TeamStats = {
-    assists: 12,
-    reboundsPersonal: 19,
-    reboundsOffensive: 10,
-    reboundsDefensive: 9,
-    turnoversTotal: 2,
-  }
-
 
 }
