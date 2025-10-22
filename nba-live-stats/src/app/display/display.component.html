@@ -1,6 +1,6 @@
 <div class="display-container">
     <app-team class = "home-team" [team]="getNextHomeTeam()"></app-team>
-    <app-time class ="time" [gameStatusText] ="gameStatusText"></app-time>
+    <app-time class ="time" [gameStatusText] ="getNextGameStatusText()"></app-time>
     <app-team class = "away-team" [team]="getNextAwayTeam()"></app-team>
     <app-team-score class = "home-score" [teamScore]="teamScore"></app-team-score>
     <app-team-score class = "away-score" [teamScore]="teamScore2"></app-team-score>

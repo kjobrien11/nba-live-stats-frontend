@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Matchup } from '../interfaces/matchup';
+import { MatchupStats } from '../interfaces/matchup-stats';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class DataService {
    return this.http.get<Matchup[]>(`${this.baseUrl}/todays-games`);
   }
 
-  getTodaysBoxScores(): Observable<any>{
-   return this.http.get<any>(`${this.baseUrl}/todays-games-boxscores`);
+  getTodaysBoxScores(): Observable<MatchupStats[]>{
+   return this.http.get<MatchupStats[]>(`${this.baseUrl}/todays-games-boxscores`);
   }
 }

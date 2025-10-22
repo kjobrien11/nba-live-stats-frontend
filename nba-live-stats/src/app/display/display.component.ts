@@ -9,6 +9,7 @@ import { TeamStats } from '../interfaces/team-stats';
 import { GameInformation } from '../interfaces/game-information';
 import { DataService } from '../services/data.service';
 import { Matchup } from '../interfaces/matchup';
+import { MatchupStats } from '../interfaces/matchup-stats';
 
 @Component({
   selector: 'app-display',
@@ -21,6 +22,7 @@ export class DisplayComponent implements OnInit {
   constructor(private api: DataService) { };
 
   todaysGames!: Matchup[];
+  todaysGamesStats!: MatchupStats[];
 
   gameIndex:number = 0;
   maxGameIndex!:number;
@@ -32,7 +34,8 @@ export class DisplayComponent implements OnInit {
     });
 
     this.api.getTodaysBoxScores().subscribe(data =>{
-      let boxscore = data[0]
+      this.todaysGamesStats = data;
+      console.log(this.todaysGamesStats)
     })
   }
 
@@ -58,6 +61,12 @@ export class DisplayComponent implements OnInit {
         wins:this.todaysGames[this.gameIndex].awayTeamWins,
         loses:this.todaysGames[this.gameIndex].awayTeamLoses
       };
+  }
+
+    getNextGameStatusText(): GameInformation {
+      return{
+        "gameStatusText": this.todaysGamesStats[this.gameIndex].gameStatusText
+      }
   }
 
 
@@ -91,7 +100,5 @@ export class DisplayComponent implements OnInit {
     turnoversTotal: 2,
   }
 
-  gameStatusText: GameInformation = {
-    "gameStatusText": "Q3 5:46"
-  }
+
 }
