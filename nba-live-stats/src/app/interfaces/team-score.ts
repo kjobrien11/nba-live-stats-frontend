@@ -1,5 +1,5 @@
 export interface TeamScore {
   score: number;
-  inBonus: number;
+  inBonus: boolean;
   timeoutsRemaining: number;
 }

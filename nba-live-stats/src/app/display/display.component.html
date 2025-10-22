@@ -2,8 +2,8 @@
     <app-team class = "home-team" [team]="getNextHomeTeam()"></app-team>
     <app-time class ="time" [gameStatusText] ="getNextGameStatusText()"></app-time>
     <app-team class = "away-team" [team]="getNextAwayTeam()"></app-team>
-    <app-team-score class = "home-score" [teamScore]="teamScore"></app-team-score>
-    <app-team-score class = "away-score" [teamScore]="teamScore2"></app-team-score>
+    <app-team-score class = "home-score" [teamScore]="getNextHomeTeamScore()"></app-team-score>
+    <app-team-score class = "away-score" [teamScore]="getNextAwayTeamScore()"></app-team-score>
     <app-team-stats class = "home-stats" [teamStats]="teamStats"></app-team-stats>
     <app-team-stats class = "away-stats" [teamStats]="teamStats2"></app-team-stats>
 </div>

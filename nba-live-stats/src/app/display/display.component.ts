@@ -21,11 +21,12 @@ export class DisplayComponent implements OnInit {
 
   constructor(private api: DataService) { };
 
+  gameIndex: number = 0;
+  maxGameIndex!: number;
+
   todaysGames!: Matchup[];
   todaysGamesStats!: MatchupStats[];
 
-  gameIndex:number = 0;
-  maxGameIndex!:number;
 
   ngOnInit() {
     this.api.getTodaysGames().subscribe(data => {
@@ -33,56 +34,57 @@ export class DisplayComponent implements OnInit {
       this.maxGameIndex = this.todaysGames.length;
     });
 
-    this.api.getTodaysBoxScores().subscribe(data =>{
+    this.api.getTodaysBoxScores().subscribe(data => {
       this.todaysGamesStats = data;
-      console.log(this.todaysGamesStats)
     })
   }
 
-  nextMatchup():void {
-    if(this.gameIndex+1 == this.maxGameIndex){
+  nextMatchup(): void {
+    if (this.gameIndex + 1 == this.maxGameIndex) {
       this.gameIndex = 0;
-    }else{
-      this.gameIndex = this.gameIndex +1;
+    } else {
+      this.gameIndex = this.gameIndex + 1;
     }
   }
 
   getNextHomeTeam(): Team {
     return {
-        teamName: this.todaysGames[this.gameIndex].homeTeam,
-        wins:this.todaysGames[this.gameIndex].homeTeamWins,
-        loses:this.todaysGames[this.gameIndex].homeTeamLoses
-      };
+      teamName: this.todaysGames[this.gameIndex].homeTeam,
+      wins: this.todaysGames[this.gameIndex].homeTeamWins,
+      loses: this.todaysGames[this.gameIndex].homeTeamLoses
+    };
   }
 
   getNextAwayTeam(): Team {
     return {
-        teamName: this.todaysGames[this.gameIndex].awayTeam,
-        wins:this.todaysGames[this.gameIndex].awayTeamWins,
-        loses:this.todaysGames[this.gameIndex].awayTeamLoses
-      };
+      teamName: this.todaysGames[this.gameIndex].awayTeam,
+      wins: this.todaysGames[this.gameIndex].awayTeamWins,
+      loses: this.todaysGames[this.gameIndex].awayTeamLoses
+    };
   }
 
-    getNextGameStatusText(): GameInformation {
-      return{
-        "gameStatusText": this.todaysGamesStats[this.gameIndex].gameStatusText
-      }
+  getNextGameStatusText(): GameInformation {
+    return {
+      "gameStatusText": this.todaysGamesStats[this.gameIndex].gameStatusText
+    }
   }
 
+  getNextHomeTeamScore(): TeamScore {
+    return {
+      score: this.todaysGamesStats[this.gameIndex].homeScore,
+      inBonus: this.todaysGamesStats[this.gameIndex].homeInBonus === "1",
+      timeoutsRemaining: this.todaysGamesStats[this.gameIndex].homeTimeoutsRemaining,
+    };
+  }
 
-
-  teamScore: TeamScore = {
-    score: 92,
-    inBonus: 0,
-    timeoutsRemaining: 4
-  };
-
-  teamScore2: TeamScore = {
-    score: 102,
-    inBonus: 1,
-    timeoutsRemaining: 2
-  };
-
+  getNextAwayTeamScore(): TeamScore {
+    return {
+      score: this.todaysGamesStats[this.gameIndex].awayScore,
+      inBonus: this.todaysGamesStats[this.gameIndex].awayInBonus === "1",
+      timeoutsRemaining: this.todaysGamesStats[this.gameIndex].awayTimeoutsRemaining,
+    };
+  }
+  
   teamStats: TeamStats = {
     assists: 8,
     reboundsPersonal: 10,

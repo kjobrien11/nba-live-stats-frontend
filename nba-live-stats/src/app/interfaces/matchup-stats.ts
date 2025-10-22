@@ -2,7 +2,7 @@ export interface MatchupStats {
     gameStatusText: string;
 
     homeScore: number;
-    homeInBonus: boolean;
+    homeInBonus: string;
     homeTimeoutsRemaining: number;
     homeTeamAssists: number;
     homeTeamRebounds: number;
@@ -11,7 +11,7 @@ export interface MatchupStats {
     homeTeamTurnovers: number;
 
     awayScore: number;
-    awayInBonus: boolean;
+    awayInBonus: string;
     awayTimeoutsRemaining: number;
     awayTeamAssists: number;
     awayTeamRebounds: number;
