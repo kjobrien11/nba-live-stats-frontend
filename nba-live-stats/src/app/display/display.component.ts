@@ -34,7 +34,7 @@ export class DisplayComponent implements OnInit, OnDestroy {
     this.refreshStats();
     this.interval = setInterval(() => {
       this.nextMatchup();
-    }, 5000);
+    }, 10000);
     
   }
     ngOnDestroy() {
