@@ -1,11 +1,11 @@
 .stats-container{
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
     grid-area:
-    "assists rebounds"
-    "turnovers freethrows"
-    "pof llead";
+    "assists  assists2"
+    "rebounds turnovers2"
+    "turnovers llead2";
     align-items: center;
 }
 
