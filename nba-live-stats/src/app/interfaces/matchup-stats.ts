@@ -9,6 +9,9 @@ export interface MatchupStats {
     homeTeamOffensiveRebounds: number;
     homeTeamDefensiveRebounds: number;
     homeTeamTurnovers: number;
+    homeTeamSteals:number;
+    homeTeamBlocks:number;
+    homeTeamFTPercentage : string;
 
     awayScore: number;
     awayInBonus: string;
@@ -18,4 +21,7 @@ export interface MatchupStats {
     awayTeamOffensiveRebounds: number;
     awayTeamDefensiveRebounds: number;
     awayTeamTurnovers: number;
+    awayTeamBlocks:number;
+    awayTeamSteals:number;
+    awayTeamFTPercentage : string;
 }

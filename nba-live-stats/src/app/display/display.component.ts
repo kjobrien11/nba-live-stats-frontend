@@ -87,6 +87,9 @@ export class DisplayComponent implements OnInit, OnDestroy {
       reboundsOffensive: team[`${side}TeamOffensiveRebounds`],
       reboundsDefensive: team[`${side}TeamDefensiveRebounds`],
       turnoversTotal: team[`${side}TeamTurnovers`],
+      steals: team[`${side}TeamSteals`],
+      blocks: team[`${side}TeamBlocks`],
+      ftPercentage: team[`${side}TeamFTPercentage`]
     };
   }
 
