@@ -2,16 +2,18 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
+    column-gap: 2rem;
     grid-area:
     "assists  assists2"
     "rebounds turnovers2"
     "turnovers llead2";
     align-items: center;
+    justify-items: space-around;
+    padding: 0 8rem;
 }
 
 h2 {
     font-size: 5rem;
-    padding-left: 5rem;
     color: rgb(179, 179, 179);
 }
 
