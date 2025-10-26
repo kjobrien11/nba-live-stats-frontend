@@ -57,12 +57,12 @@ export class DisplayComponent implements OnInit, OnDestroy {
   }
 
   nextMatchup(): void {
-    if (this.gameIndex + 1 == this.maxGameIndex) {
-      this.refreshStats();
-      this.gameIndex = 0;
-    } else {
-      this.gameIndex = this.gameIndex + 1;
-    }
+    // if (this.gameIndex + 1 == this.maxGameIndex) {
+    //   this.refreshStats();
+    //   this.gameIndex = 0;
+    // } else {
+    //   this.gameIndex = this.gameIndex + 1;
+    // }
   }
 
   getNextTeam(side: "home" | "away"): Team {
