@@ -1,10 +1,11 @@
-<div class="display-container">
+<div class="display-container cycle-styling" [ngClass]="{ 'cycle-styling': cycleMode, 'focus-styling': !cycleMode}">
     <app-team class = "home-team" [team]="getNextTeam('away')"></app-team>
     <app-time class ="time" [gameStatusText] ="getNextGameStatusText()"></app-time>
     <app-team class = "away-team" [team]="getNextTeam('home')"></app-team>
     <app-team-score class = "home-score" [teamScore]="getNextTeamScore('away')"></app-team-score>
     <app-team-score class = "away-score" [teamScore]="getNextTeamScore('home')"></app-team-score>
-    <app-team-stats class = "home-stats" [teamStats]="getNextTeamStats('away')"></app-team-stats>
-    <app-team-stats class = "away-stats" [teamStats]="getNextTeamStats('home')"></app-team-stats>
+    <app-team-stats *ngIf = "cycleMode" class = "home-stats" [teamStats]="getNextTeamStats('away')"></app-team-stats>
+    <app-team-stats *ngIf = "cycleMode" class = "away-stats" [teamStats]="getNextTeamStats('home')"></app-team-stats>
+    <h1 class = "focus" *ngIf = "!cycleMode">New mode</h1>
     <!-- <button (click) ="nextMatchup()">CLICK</button> -->
 </div>

@@ -10,10 +10,12 @@ import { GameInformation } from '../interfaces/game-information';
 import { DataService } from '../services/data.service';
 import { Matchup } from '../interfaces/matchup';
 import { MatchupStats } from '../interfaces/matchup-stats';
+import { NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-display',
-  imports: [TeamComponent, TeamScoreComponent, TeamStatsComponent, TimeComponent],
+  imports: [TeamComponent, TeamScoreComponent, TeamStatsComponent, TimeComponent, NgIf, NgClass],
   templateUrl: './display.component.html',
   styleUrl: './display.component.css'
 })
@@ -28,6 +30,8 @@ export class DisplayComponent implements OnInit, OnDestroy {
   todaysGamesStats!: MatchupStats[];
 
   interval: any;
+
+  cycleMode: boolean = true;
 
 
   ngOnInit() {
