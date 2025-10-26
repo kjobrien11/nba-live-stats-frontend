@@ -1,13 +1,13 @@
-.display-container{
+.display-container {
     display: grid;
     margin-top: 2rem;
     grid-template-columns: 30% 1fr 1fr 30%;
-    grid-template-rows: 15% repeat(2, 1fr) 20%;
-    
+    grid-template-rows: 10% repeat(3, 1fr);
+
 }
 
 .cycle-styling {
-grid-template-areas: 
+    grid-template-areas:
 
         "home time time away"
         "home  home-score away-score away"
@@ -16,7 +16,7 @@ grid-template-areas:
 }
 
 .focus-styling {
-grid-template-areas: 
+    grid-template-areas:
 
         "home time time away"
         "home  home-score away-score away"
@@ -32,22 +32,26 @@ grid-template-areas:
     grid-area: away;
 }
 
-.home-score{
+.home-score {
     grid-area: home-score;
 }
 
-.away-score{
+.away-score {
     grid-area: away-score;
 }
 
-.home-stats{
+.home-stats {
     grid-area: home-stats;
 }
 
-.away-stats{
+.away-stats {
     grid-area: away-stats;
 }
 
-.time{
+.time {
     grid-area: time;
+}
+
+.focus {
+  grid-area: focus;
 }
