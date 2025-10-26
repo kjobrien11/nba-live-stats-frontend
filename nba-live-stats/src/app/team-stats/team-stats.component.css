@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
-    column-gap: 2rem;
     grid-area:
     "assists  assists2"
     "rebounds turnovers2"
@@ -13,7 +12,7 @@
 }
 
 h2 {
-    font-size: 4.3rem;
+    font-size: 4.5rem;
     color: rgb(179, 179, 179);
 }
 
