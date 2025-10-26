@@ -63,6 +63,7 @@ export class DisplayComponent implements OnInit, OnDestroy {
     // } else {
     //   this.gameIndex = this.gameIndex + 1;
     // }
+    this.refreshStats();
   }
 
   getNextTeam(side: "home" | "away"): Team {
